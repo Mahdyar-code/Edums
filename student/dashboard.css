@@ -1,0 +1,67 @@
+body {
+  font-family: Tahoma, sans-serif;
+  background-color: #f4f6f9;
+  margin: 0;
+  padding: 20px;
+  direction: rtl;
+}
+.welcome-box {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  margin-bottom: 25px;
+}
+.logout-btn {
+  background-color: #dc3545;
+  color: white;
+  padding: 8px 15px;
+  text-decoration: none;
+  border-radius: 4px;
+  float: left;
+}
+h2,
+h3 {
+  margin-top: 0;
+  color: #333;
+}
+.section-box {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 25px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+th,
+td {
+  padding: 12px 15px;
+  text-align: right;
+  border-bottom: 1px solid #eee;
+}
+th {
+  background-color: #17a2b8;
+  color: white;
+}
+.grade-badge {
+  font-weight: bold;
+  color: #28a745;
+}
+.no-grade {
+  color: #ffc107;
+  font-weight: bold;
+}
+.financial-summary {
+  background-color: #e2f0d9;
+  padding: 15px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #385723;
+  margin-top: 15px;
+  display: inline-block;
+}

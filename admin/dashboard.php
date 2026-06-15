@@ -19,14 +19,15 @@
 
         <ul class="menu">
           <li class="active"><a href="#">🏠 داشبورد</a></li>
-          <li><a href="#">👨‍🎓 شاگردان</a></li>
-          <li><a href="#">👨‍🏫 استادان</a></li>
-          <li><a href="#">👔 کارمندان</a></li>
-          <li><a href="#">🏫 صنف‌ها</a></li>
-          <li><a href="#">💳 پرداخت‌ها</a></li>
-          <li><a href="#">📝 امتحانات</a></li>
-          <li><a href="#">📊 گزارشات</a></li>
-          <li><a href="#">⚙️ تنظیمات</a></li>
+          <li><a href="register_user.php">🤵ثبت کاربر جدید</a></li>
+          <li><a href="enroll_student/enroll_student.php">👨‍🎓ثبت نام شاگردان</a></li>
+          <li><a href="add_course/add_course.php">📚 تشکیل دوره</a></li>
+          <li><a href="add_class/add_class.php">🏫 تشکیل صنف</a></li>
+          <li><a href="add_payment/add_payment.php">💰 دریافت فس </a></li>
+          <li><a href="add_expense/add_expense.php">📉 ثبت هزینه </a></li>
+          
+          <!-- <li><a href="#">📊 گزارشات</a></li>
+          <li><a href="#">⚙️ تنظیمات</a></li> -->
         </ul>
       </div>
 
@@ -37,7 +38,7 @@
           <div class="right-box">
             <button class="dark-btn" onclick="toggleDark()">🌙 حالت شب</button>
 
-            <div class="profile"><a href="#">خروج از سیستم</a></div>
+            <div class="profile"><a href="../login.php">خروج از سیستم</a></div>
           </div>
         </div>
 
@@ -74,21 +75,21 @@
 
           <div class="card">
             <div class="show">
-              <div class="icon red">💰</div>
+              <div class="icon blue">📈</div>
               <div class="number">850,000</div>
             </div>
             <div class="label">درآمد ماهانه</div>
           </div>
           <div class="card">
             <div class="show">
-              <div class="icon red">💰</div>
+              <div class="icon red">📉</div>
               <div class="number">850,000</div>
             </div>
             <div class="label">مصارف </div>
           </div>
           <div class="card">
             <div class="show">
-              <div class="icon red">💰</div>
+              <div class="icon green">💰</div>
               <div class="number">850,000</div>
             </div>
             <div class="label">درآمد خالص </div>

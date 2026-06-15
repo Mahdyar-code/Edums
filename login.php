@@ -48,7 +48,57 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <title>ورود به سیستم مدریت  مرکز اموزشی</title>
     <link rel="stylesheet" href="login.css">
 </head>
+<style>
+    
+body {
+  font-family: Tahoma, sans-serif;
+  background: #f1f5f9;
+  color: #0f172a;
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+.login-box {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 18px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 350px;
+  text-align: center;
+}
+input{
+    background:  #f1f5f9;
+}
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+}
+button {
+  width: 100%;
+  margin: 10px;
+  padding: 10px;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #0056b3;
+}
+.error-msg {
+  color: red;
+  margin-bottom: 15px;
+}
+
+</style>
 <body>
     <div class="login-box">
         <h2>ورود به سیستم</h2>
