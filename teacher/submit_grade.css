@@ -1,16 +1,17 @@
 body {
   font-family: Tahoma, sans-serif;
-  background-color: #f4f6f9;
+  background-color: #f1f5f9;
   margin: 0;
   padding: 20px;
   direction: rtl;
 }
 .container {
-  max-width: 700px;
+  max-width: 880px;
   margin: 0 auto;
 }
 .header-box {
-  background: white;
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  color: white;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
@@ -30,10 +31,13 @@ td {
   text-align: right;
   border-bottom: 1px solid #eee;
 }
-th {
+/* th {
   background-color: #28a745;
   color: white;
-}
+} */
+ tr{
+  border: 2px solid #e2e8f0;
+ }
 input[type="number"] {
   width: 80px;
   padding: 6px;
@@ -53,8 +57,10 @@ input[type="number"] {
   background-color: #0056b3;
 }
 .back-link {
-  display: inline-block;
-  margin-top: 15px;
+  /* display: inline-block;
+ */
+ margin-top: 20px;
+
   color: #007bff;
   text-decoration: none;
 }

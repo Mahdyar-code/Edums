@@ -7,10 +7,10 @@ if(!$conn){
 else{
 //     // echo "Connected successfully";
     
-// $name ='ali';
-// $email = 'ali@gmail.com';
-// $password = '12345';
-// $rol = 'student';
+// $name ='admin';
+// $email = 'admin@gmail.com';
+// $password = '123456';
+// $rol = 'admin';
 
 //     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 

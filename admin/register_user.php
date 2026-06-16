@@ -83,6 +83,7 @@ if (isset($_SESSION['flash_message'])) {
                 <option value="student">شاگرد (Student)</option>
                 <option value="teacher">استاد (Teacher)</option>
                 <option value="admin">مدیر سیستم (Admin)</option>
+                <option value="employ"> کارمند (employe)</option>
             </select>
         </div>
 

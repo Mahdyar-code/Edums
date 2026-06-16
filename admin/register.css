@@ -1,16 +1,20 @@
-
 body {
   padding: 20px;
   direction: rtl;
   font-family: Tahoma, sans-serif;
-  background-color: #f4f6f9;
+  background-color: #f1f5f9;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
 }
 .form-container {
-  background: white;
+  background: #ffffff;
   padding: 25px;
-  border-radius: 8px;
+  border-radius: 18px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   max-width: 500px;
+  width: 100%;
   margin: 0 auto;
 }
 .form-group {
@@ -20,7 +24,7 @@ label {
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
-  color: #333;
+  color: #0f172a;
 }
 input[type="text"],
 input[type="email"],
@@ -28,13 +32,13 @@ input[type="password"],
 select {
   width: 100%;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #e2e8f0;
   border-radius: 4px;
   box-sizing: border-box;
   font-family: Tahoma;
 }
 button {
-  background-color: #007bff;
+  background-color: #2563eb;
   color: white;
   padding: 10px 20px;
   border: none;

@@ -25,19 +25,7 @@ $classes_res = mysqli_query($conn, $query);
 <head>
     <meta charset="UTF-8">
     <title>پنل اساتید | سیستم EMS</title>
-    <style>
-        body { font-family: Tahoma, sans-serif; background-color: #f4f6f9; margin: 0; padding: 20px; direction: rtl; }
-        .welcome-box { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin-bottom: 25px; }
-        .logout-btn { background-color: #dc3545; color: white; padding: 8px 15px; text-decoration: none; border-radius: 4px; float: left; }
-        h2 { margin-top: 0; color: #333; }
-        table { width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        th, td { padding: 12px 15px; text-align: right; border-bottom: 1px solid #eee; }
-        th { background-color: #007bff; color: white; }
-        tr:hover { background-color: #f8f9fa; }
-        .action-btn { background-color: #28a745; color: white; padding: 6px 12px; text-decoration: none; border-radius: 4px; font-size: 14px; }
-        .action-btn:hover { background-color: #218838; }
-        .no-data { text-align: center; padding: 20px; color: #777; background: white; border-radius: 8px; }
-    </style>
+     <link rel="stylesheet" href="dashboard.css">
 </head>
 <body>
 

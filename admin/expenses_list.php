@@ -23,7 +23,14 @@ $list_expenses = mysqli_query($conn, "SELECT * FROM expenses ORDER BY id DESC");
 </head>
 <body>
     <div id="expenses-section" class="section-box">
-    <h3>📉 لیست مصارف و مخارج روزانه مرکز</h3>
+    <h3> <div class="title">
+        📉 لیست مصارف و مخارج روزانه مرکز
+    </div>
+         <div class="button">
+            <a href="../login.php">خروج</a>
+            <a href="dashboard.php">برگشت</a>
+        </div>
+    </h3>
     <table>
         <thead>
             <tr>

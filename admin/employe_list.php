@@ -9,7 +9,7 @@ if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'admin') {
 }
 
 
-$list_teachers = mysqli_query($conn,"SELECT users.id, users.name ,users.email, courses.title ,users.create_at FROM users JOIN classes ON users.id=classes.teacher_id JOIN courses ON courses.id = classes.course_id");
+$list_employe = mysqli_query($conn,"SELECT users.id, users.name ,users.email,users.create_at FROM users WHERE users.role='employ'");
 
 ?>
 
@@ -18,12 +18,12 @@ $list_teachers = mysqli_query($conn,"SELECT users.id, users.name ,users.email, c
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>لیست کارمندان</title>
     <link rel="stylesheet" href="lists.css">
 </head>
 <body>
     <div id="teachers-section" class="section-box">
-    <h3> <div class="title">🦸 لیست کامل اساتید مرکز</div>
+    <h3> <div class="title">🦸 لیست کارمندان</div>
  <div class="button">
             <a href="../login.php">خروج</a>
             <a href="dashboard.php">برگشت</a>
@@ -34,19 +34,18 @@ $list_teachers = mysqli_query($conn,"SELECT users.id, users.name ,users.email, c
         <thead>
             <tr>
                 <th>آی‌دی</th>
-                <th>نام استاد</th>
+                <th>نام کارمند</th>
                 <th>آدرس ایمیل</th>
-                <th>صنف مربطه</th>
                 <th>تاریخ عضویت</th>
             </tr>
         </thead>
         <tbody>
-            <?php while($row = mysqli_fetch_assoc($list_teachers)): ?>
+            <?php while($row = mysqli_fetch_assoc($list_employe)): ?>
                 <tr>
                     <td><?php echo $row['id']; ?></td>
                     <td><strong><?php echo $row['name']; ?></strong></td>
                     <td><?php echo $row['email']; ?></td>
-                    <td><?php echo $row['title']  ?></td>
+                   
                     <td><?php echo $row['create_at']; ?></td>
                 </tr>
             <?php endwhile; ?>

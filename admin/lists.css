@@ -1,5 +1,8 @@
+body {
+  background-color: #f1f5f9;
+}
 .section-box {
-  background: white;
+  background: #ffffff;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
@@ -7,10 +10,16 @@
   scroll-margin-top: 20px;
 }
 .section-box h3 {
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  border-radius: 8px;
   margin-top: 0;
-  color: #333;
-  border-bottom: 2px solid #eee;
+  color: white;
+  padding: 10px 10px;
   padding-bottom: 10px;
+  font-size: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 table {
   width: 100%;
@@ -21,8 +30,8 @@ th,
 td {
   padding: 10px 12px;
   text-align: right;
-  border-bottom: 1px solid #eee;
-  font-size: 14px;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 18px;
 }
 th {
   background-color: #f8f9fa;
@@ -31,4 +40,19 @@ th {
 }
 tr:hover {
   background-color: #fcfcfc;
+}
+.button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+.button a {
+  text-decoration: none;
+  font-size: 16px;
+  color: black;
+  background-color: white;
+  padding: 10px 17px;
+  border-radius: 8px;
 }

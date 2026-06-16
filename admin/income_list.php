@@ -25,11 +25,19 @@ $list_payments = mysqli_query($conn, "
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="lists.css">
-   
+     <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
 </head>
 <body>
     <div id="payments-section" class="section-box">
-    <h3>💰 تاریخچه فیش‌های مالی نقدی دریافتی</h3>
+    <h3> <div class="title">💰تاریخچه فیش‌های مالی نقدی دریافتی</div>
+         <div class="button">
+            <a href="../login.php">خروج</a>
+            <a href="dashboard.php">برگشت</a>
+        </div>
+    </h3>
     <table>
         <thead>
             <tr>

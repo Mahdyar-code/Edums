@@ -98,12 +98,9 @@ body {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
 }
 
-.search {
-  width: 300px;
-  padding: 12px;
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  outline: none;
+.edu_name {
+  font-size: 38px;
+  font-weight: bold;
 }
 
 .right-box {
@@ -191,9 +188,14 @@ body {
 }
 
 .red {
-  background: #fee2e2;
+  background: #dff0c2;
 }
-
+.red{
+  background: rgb(227, 191, 204);
+}
+.purple{
+  background: rgb(196, 191, 200);
+}
 .number {
   font-size: 30px;
   font-weight: 800;
@@ -203,14 +205,17 @@ body {
   color: var(--text-light);
   padding-right: 40%;
 }
-
+.label a{
+  text-decoration: none;
+  color: var(--text);
+}
 /* Content */
 .show {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.content {
+/* .content {
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 20px;
@@ -245,7 +250,7 @@ body {
   padding: 5px 12px;
   border-radius: 30px;
   color: var(--text);
-}
+} */
 
 @media (max-width: 900px) {
   .sidebar {

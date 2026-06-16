@@ -23,7 +23,14 @@ $res_classes=mysqli_query($conn,"
 </head>
 <body>
     <div id="courses-section" class="section-box">
-    <h3>📚 صنف های فعال</h3>
+    <h3> <div class="title">
+        📚 صنف های فعال
+    </div>
+        <div class="button">
+            <a href="../login.php">خروج</a>
+            <a href="dashboard.php">برگشت</a>
+        </div>
+    </h3>
     <table>
         <thead>
             <tr>

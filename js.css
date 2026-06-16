@@ -1,0 +1,33 @@
+ :root {
+  --primary: #2563eb;
+  --secondary: #0f172a;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+
+  --bg: #f1f5f9;
+  --card: #ffffff;
+  --text: #0f172a;
+  --text-light: #64748b;
+  --border: #e2e8f0;
+}
+
+.dark {
+  --bg: #0f172a;
+  --card: #1e293b;
+  --text: #ffffff;
+  --text-light: #94a3b8;
+  --border: #334155;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Vazirmatn", sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+}

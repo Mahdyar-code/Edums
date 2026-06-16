@@ -6,6 +6,7 @@ if(!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'admin') {
     header("Location: ../login.php");
     exit();
 }
+$name = $_SESSION['user_name'];
 // تعداد دوره ها
 $res_courses = mysqli_query($conn, "SELECT COUNT(*) AS total FROM courses");
 $total_courses = mysqli_fetch_assoc($res_courses)['total'];
@@ -19,6 +20,8 @@ $total_teacher=mysqli_fetch_assoc($res_teacher)['total'];
 $res_students = mysqli_query($conn, "SELECT COUNT(*) AS total FROM users WHERE role='student'");
 $total_students = mysqli_fetch_assoc($res_students)['total'];
 
+$res_employe = mysqli_query($conn, "SELECT COUNT(*) AS total FROM users WHERE users.role='employ'");
+$total_employe = mysqli_fetch_assoc($res_employe)['total'];
 // ۴. کل درآمد
 $res_income = mysqli_query($conn, "SELECT SUM(amount) AS total FROM payments");
 $total_income = mysqli_fetch_assoc($res_income)['total'] ?? 0;
@@ -65,7 +68,8 @@ $net_profit = $total_income - $total_expenses;
 
       <div class="main">
         <div class="navbar">
-          <input class="search" placeholder="جستجو..." />
+          <!-- <input class="search" placeholder="جستجو..." /> -->
+           <div class="edu_name">مرکز عالی اموزشی <span>توانا</span></div>
 
           <div class="right-box">
             <button class="dark-btn" onclick="toggleDark()">🌙 حالت شب</button>
@@ -75,9 +79,9 @@ $net_profit = $total_income - $total_expenses;
         </div>
 
         <div class="hero">
-          <h1>خوش آمدید محمد موسی مهدیار 👋</h1>
+          <h1>خوش آمدید <?php echo $name ?> 👋</h1>
 
-          <p>سیستم مدیریت مرکز آموزشی - داشبورد مدیریتی</p>
+          <p>  تم مدیریت مرکز آموزشی - داشبورد مدیریتی،     برای دیدن جزیات بیشتری هر کارت روی نام آن کلیک کنید.</p>
         </div>
 
         <div class="stats">
@@ -96,6 +100,22 @@ $net_profit = $total_income - $total_expenses;
               <div class="number"><?php echo $total_teacher   ?></div>
             </div>
             <div class="label"><a href="teachers_list.php">استادان</a></div>
+          </div>
+
+           <div class="card">
+            <div class="show">
+              <div class="icon red">👷</div>
+              <div class="number"><?php echo $total_employe  ?></div>
+            </div>
+            <div class="label"><a href="employe_list.php">کارمندان</a></div>
+          </div>
+
+           <div class="card">
+            <div class="show">
+              <div class="icon purple">📜</div>
+              <div class="icon orange">📃</div>
+            </div>
+            <div class="label"><a href="grade_list.php">نمرات</a></div>
           </div>
 
           <div class="card">
@@ -133,7 +153,7 @@ $net_profit = $total_income - $total_expenses;
           
         </div>
 
-        <div class="content">
+        <!-- <div class="content">
           <div>
             <div class="panel">
               <h3>شاگردان برتر </h3>
@@ -171,7 +191,7 @@ $net_profit = $total_income - $total_expenses;
           </div>
 
          
-        </div>
+        </div> -->
       </div>
     </div>
 
