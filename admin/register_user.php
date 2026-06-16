@@ -91,6 +91,6 @@ if (isset($_SESSION['flash_message'])) {
 
     <a href="dashboard.php" class="back-link">بازگشت به داشبورد اصلی</a>
 </div>
-
+ <script src='../js.js></script>
 </body>
 </html>

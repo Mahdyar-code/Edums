@@ -18,12 +18,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $schedule = mysqli_real_escape_string($conn, $_POST['schedule']);
     $capacity = mysqli_real_escape_string($conn, $_POST['capacity']);
     $start_date = mysqli_real_escape_string($conn, $_POST['start_date']);
-
+    $end_date = mysqli_real_escape_string($conn, $_POST['end_date']);
     // کوئری درج اطلاعات در جدول صنف‌ها (classes)
-    $query = "INSERT INTO classes (course_id, teacher_id, class_room, schedule, capacity, start_date) 
-              VALUES ('$course_id', '$teacher_id', '$class_room', '$schedule', '$capacity', '$start_date')";
+    $query = "INSERT INTO classes (course_id, teacher_id, class_room, schedule, capacity, start_date, end_date) 
+              VALUES ('$course_id', '$teacher_id', '$class_room', '$schedule', '$capacity', '$start_date','$end_date)";
 
-    if (mysqli_query($conn, $query)) {
+    if(mysqli_query($conn, $query)) {
         $_SESSION['flash_message'] = "<div class='success-msg'>صنف جدید با موفقیت تشکیل شد و استاد به آن اختصاص یافت.</div>";
     } else {
         $_SESSION['flash_message'] = "<div class='error-msg'>خطا در تشکیل صنف: " . mysqli_error($conn) . "</div>";
@@ -98,8 +98,12 @@ $teachers_res = mysqli_query($conn, "SELECT id, name FROM users WHERE role = 'te
         </div>
 
         <div class="form-group">
-            <label>تاریخ شروع دوره:</label>
+            <label>تاریخ شروع صنف:</label>
             <input type="date" name="start_date" required>
+        </div>
+        <div class="form_group">
+            <label for="">ختم صنف</label>
+            <input type="date" name="end_date" required>
         </div>
 
         <button type="submit">ثبت و ایجاد صنف</button>

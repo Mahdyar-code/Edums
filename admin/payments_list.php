@@ -1,0 +1,51 @@
+<?php
+session_start();
+require_once '../db.php';
+
+if(!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'admin') {
+    header("Location: ../login.php");
+    exit();
+}
+
+$res_income = mysqli_query($conn, "SELECT SUM(amount) AS total FROM payments");
+$total_income = mysqli_fetch_assoc($res_income)['total'] ?? 0;
+
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="lists.css">
+</head>
+<body>
+    
+<div id="payments-section" class="section-box">
+    <h3>💰 تاریخچه فیش‌های مالی نقدی دریافتی</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>شماره فیش</th>
+                <th>نام شاگرد</th>
+                <th>بابت کورس</th>
+                <th>مبلغ دریافتی</th>
+                <th>تاریخ پرداخت</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php while($row = mysqli_fetch_assoc($list_payments)): ?>
+                <tr>
+                    <td>#<?php echo $row['id']; ?></td>
+                    <td><?php echo $row['student_name']; ?></td>
+                    <td><strong><?php echo $row['course_title']; ?></strong></td>
+                    <td style="color: green; font-weight: bold;"><?php echo number_format($row['amount']); ?> افغانی</td>
+                    <td><?php echo $row['payment_date']; ?></td>
+                </tr>
+            <?php endwhile; ?>
+        </tbody>
+    </table>
+</div>
+    
+</body>
+</html>

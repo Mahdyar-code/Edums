@@ -1,8 +1,9 @@
+
 body {
-  font-family: Tahoma, sans-serif;
-  background-color: #f4f6f9;
   padding: 20px;
   direction: rtl;
+  font-family: Tahoma, sans-serif;
+  background-color: #f4f6f9;
 }
 .form-container {
   background: white;

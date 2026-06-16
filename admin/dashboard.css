@@ -157,6 +157,7 @@ body {
 .card {
   background: var(--card);
   border-radius: 20px;
+
   padding: 25px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
   transition: 0.3s;

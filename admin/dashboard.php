@@ -1,3 +1,35 @@
+<?php  
+session_start();
+require_once '../db.php';
+
+if(!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'admin') {
+    header("Location: ../login.php");
+    exit();
+}
+// تعداد دوره ها
+$res_courses = mysqli_query($conn, "SELECT COUNT(*) AS total FROM courses");
+$total_courses = mysqli_fetch_assoc($res_courses)['total'];
+
+//2 تعداد اساتید
+$res_teacher = mysqli_query($conn, "SELECT COUNT(*) AS total FROM users where role='teacher'");
+$total_teacher=mysqli_fetch_assoc($res_teacher)['total'];
+
+
+// ۳. تعداد شاگردان
+$res_students = mysqli_query($conn, "SELECT COUNT(*) AS total FROM users WHERE role='student'");
+$total_students = mysqli_fetch_assoc($res_students)['total'];
+
+// ۴. کل درآمد
+$res_income = mysqli_query($conn, "SELECT SUM(amount) AS total FROM payments");
+$total_income = mysqli_fetch_assoc($res_income)['total'] ?? 0;
+
+// ۵. کل مصارف
+$res_expenses = mysqli_query($conn, "SELECT SUM(amount) AS total FROM expenses");
+$total_expenses = mysqli_fetch_assoc($res_expenses)['total'] ?? 0;
+
+// ۶. درآمد خالص
+$net_profit = $total_income - $total_expenses;
+?>
 <!doctype html>
 <html lang="fa" dir="rtl">
   <head>
@@ -52,45 +84,49 @@
           <div class="card">
             <div class="show">
               <div class="icon blue">👨‍🎓</div>
-              <div class="number">1,250</div>
+              <div class="number"><?php echo $total_students   ?></div>
             </div>
-            <div class="label">دانشجویان</div>
+            
+            <div class="label"><a href="students_list.php">شاگردان</a></div>
           </div>
 
           <div class="card">
             <div class="show">
               <div class="icon green">👨‍🏫</div>
-              <div class="number">85</div>
+              <div class="number"><?php echo $total_teacher   ?></div>
             </div>
-            <div class="label">استادان</div>
+            <div class="label"><a href="teachers_list.php">استادان</a></div>
           </div>
 
           <div class="card">
             <div class="show">
               <div class="icon orange">🏫</div>
-              <div class="number">32</div>
+              <div class="number"><?php echo $total_courses   ?></div>
             </div>
-            <div class="label">صنف فعال</div>
+            <div class="label"><a href="class_list.php">صنف های فعال</a></div>
           </div>
 
           <div class="card">
             <div class="show">
               <div class="icon blue">📈</div>
-              <div class="number">850,000</div>
+              <div class="number"><?php echo $total_income   ?></div>
             </div>
-            <div class="label">درآمد ماهانه</div>
+            <div class="label"><a href="income_list.php">درآمد</a></div>
           </div>
-          <div class="card">
-            <div class="show">
-              <div class="icon red">📉</div>
-              <div class="number">850,000</div>
+          <!-- <a href="expenses_list.php"> -->
+
+            <div class="card">
+              <div class="show">
+                <div class="icon red">📉</div>
+                <div class="number"><?php echo $total_expenses   ?></div>
+              </div>
+              <div class="label"><a href="expenses_list.php">مصارف</a> </div>
             </div>
-            <div class="label">مصارف </div>
-          </div>
+          <!-- </a> -->
           <div class="card">
             <div class="show">
               <div class="icon green">💰</div>
-              <div class="number">850,000</div>
+              <div class="number"><?php echo $net_profit   ?></div>
             </div>
             <div class="label">درآمد خالص </div>
           </div>
@@ -100,7 +136,7 @@
         <div class="content">
           <div>
             <div class="panel">
-              <h3>دانشجویان برتر </h3>
+              <h3>شاگردان برتر </h3>
 
               <table class="table">
                 <tr>
@@ -140,7 +176,7 @@
     </div>
 
     <script>
-      function toggleDark() {
+        function toggleDark() {
         document.body.classList.toggle("dark");
       }
     </script>
