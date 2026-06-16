@@ -21,8 +21,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $end_date = mysqli_real_escape_string($conn, $_POST['end_date']);
     // کوئری درج اطلاعات در جدول صنف‌ها (classes)
     $query = "INSERT INTO classes (course_id, teacher_id, class_room, schedule, capacity, start_date, end_date) 
-              VALUES ('$course_id', '$teacher_id', '$class_room', '$schedule', '$capacity', '$start_date','$end_date)";
+              VALUES ('$course_id', '$teacher_id', '$class_room', '$schedule', '$capacity', '$start_date','$end_date')";
 
+       
     if(mysqli_query($conn, $query)) {
         $_SESSION['flash_message'] = "<div class='success-msg'>صنف جدید با موفقیت تشکیل شد و استاد به آن اختصاص یافت.</div>";
     } else {
@@ -63,7 +64,7 @@ $teachers_res = mysqli_query($conn, "SELECT id, name FROM users WHERE role = 'te
 
     <form action="add_class.php" method="POST">
         <div class="form-group">
-            <label>انتخاب دوره آموزشی:</label>
+            <!-- <label>انتخاب دوره آموزشی:</label> -->
             <select name="course_id" required>
                 <option value="">-- انتخاب دوره --</option>
                 <?php while($course = mysqli_fetch_assoc($courses_res)): ?>
@@ -73,7 +74,7 @@ $teachers_res = mysqli_query($conn, "SELECT id, name FROM users WHERE role = 'te
         </div>
 
         <div class="form-group">
-            <label>انتخاب استاد مدرس:</label>
+            <!-- <label>انتخاب استاد مدرس:</label> -->
             <select name="teacher_id" required>
                 <option value="">-- انتخاب استاد --</option>
                 <?php while($teacher = mysqli_fetch_assoc($teachers_res)): ?>
@@ -83,27 +84,27 @@ $teachers_res = mysqli_query($conn, "SELECT id, name FROM users WHERE role = 'te
         </div>
 
         <div class="form-group">
-            <label>شماره یا نام اتاق صنف:</label>
+            <!-- <label>شماره یا نام اتاق صنف:</label> -->
             <input type="text" name="class_room" placeholder="مثال: لابراتوار کامپیوتر ۱" required>
         </div>
 
         <div class="form-group">
-            <label>روزها و ساعت برگزاری:</label>
+            <!-- <label>روزها و ساعت برگزاری:</label> -->
             <input type="text" name="schedule" placeholder="مثال: جفت روزها (۱۴:۰۰ - ۱۶:۰۰)" required>
         </div>
 
         <div class="form-group">
-            <label>ظرفیت صنف (نفر):</label>
+            <!-- <label>ظرفیت صنف (نفر):</label> -->
             <input type="number" name="capacity" placeholder="مثال: ۲۵" required>
         </div>
 
         <div class="form-group">
-            <label>تاریخ شروع صنف:</label>
-            <input type="date" name="start_date" required>
+            <!-- <label>تاریخ شروع صنف:</label> -->
+            <input type="date" name="start_date"  placeholder="تاریخ شروع صنف" required>
         </div>
         <div class="form_group">
-            <label for="">ختم صنف</label>
-            <input type="date" name="end_date" required>
+            <!-- <label for="">ختم صنف</label> -->
+            <input type="date" name="end_date"  placeholder="تاریخ ختم صنف" required>
         </div>
 
         <button type="submit">ثبت و ایجاد صنف</button>
