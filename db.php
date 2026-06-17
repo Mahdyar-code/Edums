@@ -5,10 +5,10 @@ if(!$conn){
 }
 
 else{
-//     // echo "Connected successfully";
+    // echo "Connected successfully";
     
-// $name ='admin';
-// $email = 'admin@gmail.com';
+// $name ='mosa';
+// $email = 'mosa@gmail.com';
 // $password = '123456';
 // $rol = 'admin';
 
