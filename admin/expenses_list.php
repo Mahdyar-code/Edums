@@ -39,7 +39,7 @@ $list_expenses = mysqli_query($conn, "SELECT * FROM expenses ORDER BY id DESC");
                 <th>دسته‌بندی</th>
                 <th>مبلغ مصرف شده</th>
                 <th>تاریخ ثبت</th>
-                <th>توضیحات فیش</th>
+                <th>توضیحات </th>
             </tr>
         </thead>
         <tbody>

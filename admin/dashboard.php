@@ -8,8 +8,8 @@ if(!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'admin') {
 }
 $name = $_SESSION['user_name'];
 // تعداد دوره ها
-$res_courses = mysqli_query($conn, "SELECT COUNT(*) AS total FROM courses");
-$total_courses = mysqli_fetch_assoc($res_courses)['total'];
+$res_classes = mysqli_query($conn, "SELECT COUNT(*) AS total FROM classes");
+$total_classes = mysqli_fetch_assoc($res_classes)['total'];
 
 //2 تعداد اساتید
 $res_teacher = mysqli_query($conn, "SELECT COUNT(*) AS total FROM users where role='teacher'");
@@ -69,7 +69,7 @@ $net_profit = $total_income - $total_expenses;
       <div class="main">
         <div class="navbar">
           <!-- <input class="search" placeholder="جستجو..." /> -->
-           <div class="edu_name">مرکز عالی اموزشی <span>توانا</span></div>
+           <div class="edu_name">مرکز عالی اموزشی <span>ناجی</span></div>
 
           <div class="right-box">
             <button class="dark-btn" onclick="toggleDark()">🌙 حالت شب</button>
@@ -120,8 +120,8 @@ $net_profit = $total_income - $total_expenses;
 
           <div class="card">
             <div class="show">
-              <div class="icon orange">🏫</div>
-              <div class="number"><?php echo $total_courses   ?></div>
+              <div class="icon green">🏫</div>
+              <div class="number"><?php echo $total_classes   ?></div>
             </div>
             <div class="label"><a href="class_list.php">صنف های فعال</a></div>
           </div>
@@ -145,7 +145,7 @@ $net_profit = $total_income - $total_expenses;
           <!-- </a> -->
           <div class="card">
             <div class="show">
-              <div class="icon green">💰</div>
+              <div class="icon orange">💰</div>
               <div class="number"><?php echo $net_profit   ?></div>
             </div>
             <div class="label">درآمد خالص </div>
@@ -153,45 +153,6 @@ $net_profit = $total_income - $total_expenses;
           
         </div>
 
-        <!-- <div class="content">
-          <div>
-            <div class="panel">
-              <h3>شاگردان برتر </h3>
-
-              <table class="table">
-                <tr>
-                  <th>ID</th>
-                  <th>نام</th>
-                  <th>صنف</th>
-                  <th>نمره</th>
-                </tr>
-
-                <tr>
-                  <td>1</td>
-                  <td>احمد</td>
-                  <td>React</td>
-                  <td><span class="status ">88</span></td>
-                </tr>
-
-                <tr>
-                  <td>12</td>
-                  <td>محمد</td>
-                  <td>Database</td>
-                  <td><span class="status ">87</span></td>
-                </tr>
-
-                <tr>
-                  <td>3</td>
-                  <td>علی</td>
-                  <td>Java</td>
-                  <td><span class="status ">88.3</span></td>
-                </tr>
-              </table>
-            </div>
-          </div>
-
-         
-        </div> -->
       </div>
     </div>
 

@@ -32,7 +32,7 @@ $list_payments = mysqli_query($conn, "
 </head>
 <body>
     <div id="payments-section" class="section-box">
-    <h3> <div class="title">💰تاریخچه فیش‌های مالی نقدی دریافتی</div>
+    <h3> <div class="title">💰تاریخچه رسید مالی نقدی دریافتی</div>
          <div class="button">
             <a href="../login.php">خروج</a>
             <a href="dashboard.php">برگشت</a>
@@ -41,7 +41,7 @@ $list_payments = mysqli_query($conn, "
     <table>
         <thead>
             <tr>
-                <th>شماره فیش</th>
+                <th>شماره رسید</th>
                 <th>نام شاگرد</th>
                 <th>بابت کورس</th>
                 <th>مبلغ دریافتی</th>

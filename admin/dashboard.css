@@ -215,42 +215,6 @@ body {
   justify-content: space-between;
   align-items: center;
 }
-/* .content {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 20px;
-  margin-top: 25px;
-}
-
-.panel {
-  background: var(--card);
-  border-radius: 20px;
-  padding: 25px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-}
-
-.panel h3 {
-  margin-bottom: 20px;
-}
-
-.table {
-  margin-top: 25px;
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.table th,
-.table td {
-  padding: 15px;
-  text-align: center;
-  border-bottom: 1px solid var(--border);
-}
-
-.status {
-  padding: 5px 12px;
-  border-radius: 30px;
-  color: var(--text);
-} */
 
 @media (max-width: 900px) {
   .sidebar {

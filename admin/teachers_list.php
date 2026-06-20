@@ -9,7 +9,7 @@ if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'admin') {
 }
 
 
-$list_teachers = mysqli_query($conn,"SELECT users.id, users.name ,users.email, courses.title ,users.create_at FROM users JOIN classes ON users.id=classes.teacher_id JOIN courses ON courses.id = classes.course_id");
+$list_teachers = mysqli_query($conn,"SELECT users.id, users.name ,users.email,users.create_at FROM users  WHERE users.role='teacher'");
 
 ?>
 
@@ -36,8 +36,8 @@ $list_teachers = mysqli_query($conn,"SELECT users.id, users.name ,users.email, c
                 <th>آی‌دی</th>
                 <th>نام استاد</th>
                 <th>آدرس ایمیل</th>
-                <th>صنف مربطه</th>
                 <th>تاریخ عضویت</th>
+                <th>تغیرات</th>
             </tr>
         </thead>
         <tbody>
@@ -46,8 +46,12 @@ $list_teachers = mysqli_query($conn,"SELECT users.id, users.name ,users.email, c
                     <td><?php echo $row['id']; ?></td>
                     <td><strong><?php echo $row['name']; ?></strong></td>
                     <td><?php echo $row['email']; ?></td>
-                    <td><?php echo $row['title']  ?></td>
+                    
                     <td><?php echo $row['create_at']; ?></td>
+                    <td class="actions">
+                        <a href="edit_user.php?id=<?php echo $row['id']; ?>" target="_blank">✏️ ویرایش</a>
+                        <a href="delete_user.php?id=<?php echo $row['id']; ?>" onclick="return confirm('آیا مطمئن هستید که می‌خواهید این استاد را حذف کنید؟');">🗑️ حذف</a>
+                    </td>
                 </tr>
             <?php endwhile; ?>
         </tbody>

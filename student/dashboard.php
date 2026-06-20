@@ -1,17 +1,17 @@
 <?php
-// student/dashboard.php - پنل اختصاصی مشاهده وضعیت دانشجویان
+// student/dashboard.php - پنل اختصاصی مشاهده وضعیت شاگردان
 session_start();
 require_once '../db.php'; // اتصال به دیتابیس با خروج از پوشه student
 
-// امنیت پنل: اگر کاربر لاگین نکرده یا نقش او دانشجو نیست، هدایت به صفحه ورود
+// امنیت پنل: اگر کاربر لاگین نکرده یا نقش او شاگرد نیست، هدایت به صفحه ورود
 if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'student') {
     header("Location: ../login.php");
     exit();
 }
 
-$student_id = $_SESSION['user_id']; // دریافت آی‌دی دانشجوی لاگین شده از سشن
+$student_id = $_SESSION['user_id']; // دریافت آی‌دی شاگردی لاگین شده از سشن
 
-// ۱. استخراج کلاس‌ها، مشخصات دوره و نمرات دانشجو (با استفاده از LEFT JOIN)
+// ۱. استخراج سنف ها، مشخصات دوره و نمرات شاگرد (با استفاده از LEFT JOIN)
 $report_query = "
     SELECT courses.title AS course_title, classes.schedule, classes.class_room, grades.grade
     FROM enrollments
@@ -22,7 +22,7 @@ $report_query = "
 ";
 $report_res = mysqli_query($conn, $report_query);
 
-// ۲. استخراج تاریخچه پرداخت‌های نقدی این دانشجو
+// ۲. استخراج تاریخچه پرداخت‌های نقدی این شاگرد
 $payments_query = "
     SELECT payments.amount, payments.payment_date, courses.title AS course_title
     FROM payments
@@ -33,7 +33,7 @@ $payments_query = "
 ";
 $payments_res = mysqli_query($conn, $payments_query);
 
-// ۳. محاسبه مجموع مبالغ پرداخت شده توسط این دانشجو
+// ۳. محاسبه مجموع مبالغ پرداخت شده توسط این شاگرد
 $total_paid_query = "SELECT SUM(amount) AS total FROM payments WHERE student_id = '$student_id'";
 $total_paid_res = mysqli_query($conn, $total_paid_query);
 $total_paid = mysqli_fetch_assoc($total_paid_res)['total'] ?? 0;
@@ -43,14 +43,14 @@ $total_paid = mysqli_fetch_assoc($total_paid_res)['total'] ?? 0;
 <html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>پنل دانشجویان | سیستم EMS</title>
+    <title>پنل شاگردان | سیستم EMS</title>
     <link rel="stylesheet" href="dashboard.css">
 </head>
 <body>
 
 <div class="welcome-box">
     <a href="../login.php" class="logout-btn">خروج از سیستم</a>
-    <h2>خوش آمدید، <?php echo $_SESSION['user_name']; ?> (پنل دانشجو)</h2>
+    <h2>خوش آمدید، <?php echo $_SESSION['user_name']; ?> (پنل شاگرد)</h2>
     <p>در این بخش می‌توانید وضعیت آموزشی و مالی خود را پیگیری کنید.</p>
 </div>
 
@@ -61,9 +61,9 @@ $total_paid = mysqli_fetch_assoc($total_paid_res)['total'] ?? 0;
         <thead>
             <tr>
                 <th>عنوان دوره آموزشی</th>
-                <th>زمان‌بندی کلاس</th>
+                <th>زمان‌بندی صنف</th>
                 <th>اتاق / محل برگزاری</th>
-                <th>نمره‌ی نهایی آزمون</th>
+                <th>نمره‌ی نهایی امتحان</th>
             </tr>
         </thead>
         <tbody>
@@ -80,7 +80,7 @@ $total_paid = mysqli_fetch_assoc($total_paid_res)['total'] ?? 0;
                 <?php endwhile; ?>
             <?php else: ?>
                 <tr>
-                    <td colspan="4" style="text-align: center; color: #777;">شما در حال حاضر در هیچ کلاسی عضویت فعال ندارید.</td>
+                    <td colspan="4" style="text-align: center; color: #777;">شما در حال حاضر در هیچ صنفی عضویت فعال ندارید.</td>
                 </tr>
             <?php endif; ?>
         </tbody>
@@ -93,7 +93,7 @@ $total_paid = mysqli_fetch_assoc($total_paid_res)['total'] ?? 0;
     <table>
         <thead>
             <tr>
-                <th>بابت کلاس / دوره</th>
+                <th>بابت صنف / دوره</th>
                 <th>مبلغ پرداخت شده</th>
                 <th>تاریخ و زمان پرداخت</th>
             </tr>

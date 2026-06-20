@@ -7,11 +7,17 @@ if(!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'admin') {
     exit();
 }
 
-$res_classes=mysqli_query($conn,"
-    SELECT courses.title, courses.price, classes.schedule, users.name, classes.start_date, classes.end_date, classes.capacity FROM courses JOIN classes ON courses.id=classes.course_id JOIN users ON classes.teacher_id=users.id WHERE classes.end_date >= curdate() ORDER BY classes.start_date DESC;
-");
+$res_classes=mysqli_query($conn,"SELECT classes.id AS class_id, courses.title, courses.price, classes.schedule, users.name, classes.start_date, classes.end_date, classes.capacity FROM courses JOIN classes ON courses.id=classes.course_id JOIN users ON classes.teacher_id=users.id WHERE classes.end_date >= curdate() ORDER BY class_id DESC");
+// $enrol_Student=mysqli_query($conn,
+// "SELECT COUNT(*) FROM users JOIN enrollments ON users.id=enrollments.student_id JOIN classes ON classes.id=enrollments.class_id WHERE class_id"
+// )
 
+
+// $enrol_Student=mysqli_query($conn,"SELECT COUNT(*) FROM users JOIN enrollments ON users.id=enrollments.student_id JOIN classes ON classes.id=enrollments.class_id WHERE class_id='$class_id' ")
+
+                    
 ?>
+
 
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
@@ -40,6 +46,7 @@ $res_classes=mysqli_query($conn,"
                 <th>استاد</th>
                 <th>تاریخ شروع</th>
                 <th>تاریخ ختم</th>
+                <!-- <th>تعداد شاگرد</th> -->
                 <th>ظرفیت صنف</th>
             </tr>
         </thead>
@@ -52,6 +59,8 @@ $res_classes=mysqli_query($conn,"
                     <td><?php echo $row['name']; ?> </td>
                     <td><?php echo $row['start_date']; ?></td>
                     <td><?php echo $row['end_date']; ?></td>
+                   
+                    <!-- <td><?php echo $enrol_Student; ?></td> -->
                     <td><?php echo $row['capacity']; ?></td>
                 </tr>
             <?php endwhile; ?>

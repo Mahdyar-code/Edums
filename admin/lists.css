@@ -58,3 +58,19 @@ tr:hover {
   padding: 10px 17px;
   border-radius: 8px;
 }
+.actions{
+  display: flex;
+  gap: 20px;
+}
+.actions a {
+  text-decoration: none;
+  font-size: 16px;
+  color: white;
+ background-color: #0056b3;
+
+  padding: 10px 17px;
+  border-radius: 8px;
+}
+.actions a:hover {
+  background-color: #003d80;
+}

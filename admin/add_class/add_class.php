@@ -95,15 +95,15 @@ $teachers_res = mysqli_query($conn, "SELECT id, name FROM users WHERE role = 'te
 
         <div class="form-group">
             <!-- <label>ظرفیت صنف (نفر):</label> -->
-            <input type="number" name="capacity" placeholder="مثال: ۲۵" required>
+            <input type="number" name="capacity" placeholder="ظرفیت صنف" required>
         </div>
 
         <div class="form-group">
-            <!-- <label>تاریخ شروع صنف:</label> -->
+            <label>تاریخ شروع صنف:</label>
             <input type="date" name="start_date"  placeholder="تاریخ شروع صنف" required>
         </div>
         <div class="form_group">
-            <!-- <label for="">ختم صنف</label> -->
+            <label for="">ختم صنف</label>
             <input type="date" name="end_date"  placeholder="تاریخ ختم صنف" required>
         </div>
 
