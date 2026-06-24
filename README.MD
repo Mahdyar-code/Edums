@@ -1,5 +1,6 @@
 for online testing 
 https://edums.infinityfree.me
+اطلاعات ورودی پیش فرض در پایین تر
 
 # 🏫 سیستم مدیریت مرکز آموزشی (EDUMS)
 
